@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/sgl/version.rb'
+require 'scripts/lib-txt2html'
+
+VERS = AutoReload::VERSION::STRING
+RUBYFORGE_PROJECT = 'autoreload' # The unix name for your project
+DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
+
+Txt2Html.main(ARGV)

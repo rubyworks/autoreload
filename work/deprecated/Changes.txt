@@ -1,0 +1,56 @@
+== 2007-07-07
+
+* lib/autoreload.rb: Do not use @thread.
+
+== 2007-07-06
+
+* Rakefile: To use Chages.txt
+
+== 2007-07-05
+
+* Changes.txt: New file. Moved from ChangeLog.
+* ChangeLog: Deleted.
+
+* bin: Deleted.
+
+* lib/autoreload.rb: Make it start from class method.
+
+* lib/autoreload/version.rb: Removed.
+
+* lib/autoreload.rb: Reformat.
+
+* examples/sample1.rb: New file.
+* examples/foo.rb: New file.
+
+* default_task.rb: New file. Splited from Rakefile.
+* Rakefile: Follow.
+* script/lib-txt2html.rb: New file.
+* script/makemanifest.rb: New file.
+
+* License.txt: Update license to Ruby license.
+
+* test/test_autoreload.rb: Sometimes test is failed.
+
+* default_task.rb: Check file exist in chmod task.
+
+* default_task.rb: Specify version and download.
+* scripts/lib-txt2html.rb: Remove dependency.
+* scripts/txt2html: Follow.
+
+== 2007-07-04
+
+* License.txt: created.
+* README.txt: created.
+
+* lib/autoreload/version.rb: Truncated.
+* Rakefile: Ditto.
+
+* lib/autoreload.rb: Created.
+* test/test_autoreload.rb: Ditto.
+
+* lib/autoreload.rb: Refactoring.
+
+== 2007-07-04
+
+* Init.
+
