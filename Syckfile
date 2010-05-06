@@ -18,9 +18,6 @@ box:
   service: Box
   active : true
   types  : [gem, gz]
-  include: [bin, demo, lib, meta, plug, test, "[A-Z]*"]
-  exclude: ~
-  master : false
 
 ridoc:
   service: RIDoc
@@ -30,6 +27,7 @@ ridoc:
 
 rdoc:
   service: RDoc
+  template: newfish
   include: ~
   exclude: [ Syckfile ]
   active : true
