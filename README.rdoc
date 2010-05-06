@@ -1,5 +1,39 @@
-README for autoreload
-=====================
+= Autoreload
 
-'autoreload' reload the library if the file is updated.
+* home: http://rubyworks.github.com/autoreload
+* work: http://github.com/rubyworks/autoreload
+
+
+== DESCRIPTION
+
+Autoreload automatically reloads library files when they have been
+updated.
+
+
+== HOW TO USE
+
+Say we have a library +foo.rb+:
+
+  def foo
+    1
+  end
+
+We can run the following script 'sample1.rb' and change 'foo.rb'
+while it is running.
+
+    $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '../lib')
+    require 'autoreload'
+    require 'foo'
+
+    autoreload(1, true, 'sample1')
+
+    loop {
+      puts foo
+      sleep 1
+    }
+
+
+== COPYRIGHT
+
+Copyright (c) 2007 Kouichirou Eto
 
