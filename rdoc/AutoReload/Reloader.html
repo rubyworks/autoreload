@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: AutoReload::Reloader</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">Autoreload</a>&nbsp;
+      <a href="/">AutoReload::Reloader</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/autoreload_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/autoreload.rb">lib/autoreload.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <!-- why was this class="link" ? -->
+          <li class="class"><a href="../Object.html">Object</a></li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-start">::start</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-check_lib">#check_lib</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-get_status">#get_status</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-update">#update</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-warn">#warn</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY.html">HISTORY</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="class"><a href="../AutoReload/Reloader.html">AutoReload::Reloader</a></li>
+        
+          <li class="class"><a href="../Object.html">Object</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+        <h1>Reloader</h1>
+      
+
+      
+    </div>
+
+    <!-- Constants -->
+    
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="DEFAULT_INTERVAL">DEFAULT_INTERVAL</a></dt>
+        
+        <dd class="description"></dd>
+        
+      
+      </dl>
+    </div>
+    
+
+    <!-- Attributes -->
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="start-method" class="method-detail ">
+        <a name="method-c-start"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">start</span><span
+            class="method-args">(*a)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="start-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 15</span>
+15:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">start</span>(*<span class="ruby-identifier">a</span>)
+16:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">a</span>).<span class="ruby-identifier">start</span>
+17:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="private-instance-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="check-lib-method" class="method-detail ">
+        <a name="method-i-check_lib"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">check_lib</span><span
+            class="method-args">(lib)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="check-lib-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 57</span>
+57:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_lib</span>(<span class="ruby-identifier">lib</span>)
+58:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
+59:         <span class="ruby-identifier">file</span>, <span class="ruby-identifier">mtime</span> = <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
+60:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>) <span class="ruby-comment cmt"># file is disappered.</span>
+61:         <span class="ruby-identifier">curtime</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>
+62:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mtime</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">curtime</span>
+63:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@verbose</span>
+64:             <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;reload: '#{file}'&quot;</span>
+65:           <span class="ruby-keyword kw">end</span>
+66:           <span class="ruby-identifier">load</span> <span class="ruby-identifier">file</span>    <span class="ruby-comment cmt"># Load it.</span>
+67:           <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = [<span class="ruby-identifier">file</span>, <span class="ruby-identifier">curtime</span>]
+68:         <span class="ruby-keyword kw">end</span>
+69:         <span class="ruby-keyword kw">return</span>
+70:       <span class="ruby-keyword kw">end</span>
+71: 
+72:       <span class="ruby-identifier">check_path</span> = [<span class="ruby-value str">''</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">$LOAD_PATH</span>
+73:       <span class="ruby-identifier">check_path</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+74:         <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">lib</span>)
+75:         <span class="ruby-identifier">file</span> = <span class="ruby-identifier">lib</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>      <span class="ruby-comment cmt"># Check if the lib is a filename.</span>
+76:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
+77:           <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = [<span class="ruby-identifier">file</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>]
+78:           <span class="ruby-keyword kw">return</span> 
+79:         <span class="ruby-keyword kw">end</span>
+80:       }
+81: 
+82:       <span class="ruby-comment cmt">#raise &quot;The library '#{lib}' is not found.&quot;</span>
+83:       <span class="ruby-comment cmt"># $stdout.puts(message(&quot;The library '#{lib}' is not found.&quot;)) if @verbose</span>
+84:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="get-status-method" class="method-detail ">
+        <a name="method-i-get_status"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">get_status</span><span
+            class="method-args">(file)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="get-status-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 86</span>
+86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_status</span>(<span class="ruby-identifier">file</span>)
+87:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
+88:         <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">file</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>]
+89:       <span class="ruby-keyword kw">end</span>
+90:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+91:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="update-method" class="method-detail ">
+        <a name="method-i-update"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="update-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 50</span>
+50:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+51:       <span class="ruby-identifier">libs</span> = [<span class="ruby-identifier">$0</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">$&quot;</span>
+52:       <span class="ruby-identifier">libs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
+53:         <span class="ruby-identifier">check_lib</span>(<span class="ruby-identifier">lib</span>)
+54:       }
+55:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="warn-method" class="method-detail ">
+        <a name="method-i-warn"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">warn</span><span
+            class="method-args">(msg, out = $stderr)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="warn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">out</span> = <span class="ruby-identifier">$stderr</span>)
+46:       <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;#{@name}: #{msg}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@name</span>
+47:       <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">msg</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\n&quot;</span>
+48:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+
