@@ -1,0 +1,3 @@
+Autoreload automatically reloads library files when they have been
+updated. It is especailly useful when testing stateless services
+such as web applications.

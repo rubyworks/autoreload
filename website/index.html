@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -5,7 +7,7 @@
   <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
-      autoreload, you don&#8217;t have to restart your program.
+      Autoreload
   </title>
   <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
 <style>
@@ -30,79 +32,78 @@
 <body>
 <div id="main">
 
-    <h1>autoreload, you don&#8217;t have to restart your program.</h1>
-    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/autoreload"; return false'>
+    <h1>Autoreload</h1>
+    <div id="version" class="clickable" onclick='document.location = ""; return false'>
       <p>Get Version</p>
-      <a href="http://rubyforge.org/projects/autoreload" class="numbers">0.0.1</a>
+      <a href="" class="numbers">0.1.0</a>
     </div>
-    <h2>What</h2>
+    <h1>you don't have to restart your program</h1>
+
+<h2>What Is It?</h2>
+
+<p>Autoreload reloads libraries automatically when files are updated.</p>
+
+<h2>Installing</h2>
+
+<pre syntax="ruby">$ sudo gem install autoreload</pre>
 
 
-	<p>&#8216;autoreload&#8217; reload libraries when the files are updated.</p>
+<h2>The Basics</h2>
 
 
-	<h2>Installing</h2>
-
-
-<pre syntax="ruby">sudo gem install autoreload</pre>
-
-	<h2>The Basic</h2>
-
-
-<pre syntax="ruby">
-# foo.rb
-def foo
-  1
-end
+<pre class="ruby">
+  # foo.rb
+  def foo
+    1
+  end
 </pre>
 
-<pre syntax="ruby">
-# sample1.rb
-require 'autoreload'
-require 'foo'
+<pre class="ruby">
+  # sample1.rb
+  require 'autoreload'
+  require 'foo'
 
-autoreload(1, true, 'sample1')
+  autoreload(1, true, 'sample1')
 
-loop {
-  puts foo
-  sleep 1
-}
+  loop {
+    puts foo
+    sleep 1
+  }
 </pre>
 
-	<p>In this situation, run the script &#8216;sample1.rb&#8217;.
+
+<p>In this situation, run the script 'sample1.rb'.
 You see that the number 1 is shown repeatedly.
-Then, update the file &#8216;foo.rb&#8217;.
+Then, update the file 'foo.rb'.
 For example, change the number 1 to 2 and save it.
 Then, the library automatically check the update and reload it.
-You&#8217;ll see the number 2 is shown.</p>
+You'll see the number 2 is shown.</p>
+
+<h2>Documents</h2>
+
+<ul>
+<li><a href="rdoc/">API Reference</a></li>
+</ul>
 
 
-	<h2>Documents</h2>
+<h2>Repository</h2>
 
+<p>This project is hosted on <a href="http://github.com">GitHub.com</a> at <a href="http://github.com/rubyworks/autoreload/">RubyWorks</a>.</p>
 
-	<ul>
-	<li><a href="rdoc/"><span class="caps">API</span> Reference</a></li>
-	</ul>
+<p>The repository is <code>git://github.com/rubyworks/autoreload.git</code> for anonymous access.</p>
 
+<h2>License</h2>
 
-	<h2>Repositry</h2>
+<p>(Ruby License)</p>
 
+<p>Copyright (c) 2007 Kouichirou Eto</p>
 
-	<p>The trunk repository is <code>svn://rubyforge.org/var/svn/autoreload/trunk</code> for anonymous access.</p>
+<h2>Contact</h2>
 
+<p>Comments are welcome. Send an email to Trans "transfire <em>at</em> gmail <em>dot</em> org".</p>
 
-	<h2>License</h2>
-
-
-	<p>Ruby License.</p>
-
-
-	<h2>Contact</h2>
-
-
-	<p>Comments are welcome. Send an email to Kouichirou Eto &#8220;eto <em>at</em> rubyforge <em>dot</em> org&#8221;.</p>
     <p class="coda">
-      <a href="mailto:drnicwilliams@gmail.com">Dr Nic</a>, 5th July 2007<br>
+      <a href="mailto:transfire@gmail.com">Trans</a>, 2010-05-09<br>
       Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
     </p>
 </div>
