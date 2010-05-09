@@ -16,8 +16,8 @@ gemcutter:
 
 box:
   service: Box
-  active : true
   types  : [gem, gz]
+  active : true
 
 ridoc:
   service: RIDoc
