@@ -18,42 +18,42 @@ module AutoReload
 end
 
 class TestAutoReload < Test::Unit::TestCase
-  def test_autoreload
-    #autoreload(1, true, 'test_autoreload')
-    autoreload(1)
 
+  def test_autoreload
     # create a library
     dir = Pathname.new(__FILE__).dirname
     library = dir + 'tmp_library.rb'
     library.write 'def foo; 1; end'
 
+    autoreload(library, :interval => 1) #, :verbose=>true)
+
     # require it
     require library
-    assert_equal 1, foo
 
-    sleep 2	# wait is necessary.
-    # If not, the time stamp will be same with the next file.
+    assert_equal(1, foo)
+
+    sleep 2	# wait is needed for time stamp to not be same with the next file.
 
     # recreate the file
     library.write 'def foo; 2; end'
 
-    sleep 2	# wait again. wait for the autoreload will be started.
+    sleep 2	# wait again for the autoreload loop to repeat.
 
     # check the number again.
-    assert_equal 2, foo
+    assert_equal(2, foo)
 
-    # clean it
+    # clean up
     library.unlink
-    assert_equal false, library.exist?
+    assert_equal(false, library.exist?)
   end
 
-  # ruby -w -Ilib test/test_autoreload.rb -n test_all
-  def test_all
-    rel = AutoReload::Reloader.new
-
-    # test_warn
-    str = ''
-    rel.warn("a", str)
-    assert_equal "a\n", str
-  end
+  ## ruby -w -Ilib test/test_autoreload.rb -n test_all
+  #def test_all
+  #  rel = AutoReload::Reloader.new
+  #
+  #  # test_warn
+  #  str = ''
+  #  rel.warn("a", str)
+  #  assert_equal "a\n", str
+  #end
 end
