@@ -31,11 +31,12 @@ We can then run the following script, +example.rb+:
       sleep 2
     }
 
-With that running we can change 'foo.rb' and tha changes will take 
+With that running we can change 'foo.rb' and the change will take 
 effect within two seconds of being made.
 
 
 == COPYRIGHT
 
 Copyright (c) 2007 Kouichirou Eto
+
 Copyright (c) 2010 Thomas Sawyer
