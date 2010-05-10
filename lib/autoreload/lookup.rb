@@ -13,7 +13,7 @@ module AutoReload
     #
     # Provide a +match+ file glob to find plugins.
     #
-    #   Plugins.find('syckle/*')
+    #   Lookup.find('syckle/*')
     #
     def find(match, options={})
       plugins = []
@@ -25,7 +25,7 @@ module AutoReload
 
     # Shortcut for #find.
     #
-    #   Plugin['syckle/*']
+    #   Lookup['syckle/*']
     #
     alias_method :[], :find
 
