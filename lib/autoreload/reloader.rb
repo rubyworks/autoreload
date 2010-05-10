@@ -1,8 +1,5 @@
-# Copyright (C) 2003,2007 Kouichirou Eto
-# Copyright (C) 2010 Thomas Sawyer
-
-require 'plugin'
 require 'thread'
+require 'autoreload/lookup'
 
 module AutoReload
 
@@ -123,7 +120,7 @@ module AutoReload
 
     # Get library file status.
     def get_status(lib)
-      file = Plugin.find(lib, :directory=>'').first
+      file = Lookup.find(lib).first
       if file #FileTest.exist?(file)
         [file, File.mtime(file).to_i]
       else
@@ -137,4 +134,7 @@ module AutoReload
   end
 
 end
+
+# Copyright (C) 2003,2007 Kouichirou Eto
+# Copyright (C) 2010 Thomas Sawyer
 
