@@ -13,26 +13,26 @@ such as web applications.
 
 == HOW TO USE
 
-Say we have a library +foo.rb+ in our load path:
+Say we have a library <tt>foo.rb</tt> in our load path:
 
   def foo
     1
   end
 
-We can then run the following script, +example.rb+:
+We can then run the following script, <tt>example.rb</tt>:
 
-    require 'autoreload'
-    require 'foo'
+  require 'autoreload'
+  require 'foo'
 
-    autoreload('foo.rb', :interval=>2, :verbose=>true)
+  autoreload('foo.rb', :interval=>2, :verbose=>true)
 
-    loop {
-      puts foo
-      sleep 2
-    }
+  loop {
+    puts foo
+    sleep 2
+  }
 
-With that running we can change 'foo.rb' and the change will take 
-effect within two seconds of being made.
+With that running we can change <tt>foo.rb</tt> and the change will take 
+effect in <tt>example.rb</tt> within two seconds of being made.
 
 
 == COPYRIGHT
