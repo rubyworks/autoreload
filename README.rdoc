@@ -13,28 +13,29 @@ such as web applications.
 
 == HOW TO USE
 
-Say we have a library +foo.rb+:
+Say we have a library +foo.rb+ in our load path:
 
   def foo
     1
   end
 
-We can run the following script 'sample1.rb' and change 'foo.rb'
-while it is running.
+We can then run the following script, +example.rb+:
 
-    $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '../lib')
     require 'autoreload'
     require 'foo'
 
-    autoreload(1, true, 'sample1')
+    autoreload('foo.rb', :interval=>2, :verbose=>true)
 
     loop {
       puts foo
-      sleep 1
+      sleep 2
     }
+
+With that running we can change 'foo.rb' and tha changes will take 
+effect within two seconds of being made.
 
 
 == COPYRIGHT
 
 Copyright (c) 2007 Kouichirou Eto
-
+Copyright (c) 2010 Thomas Sawyer

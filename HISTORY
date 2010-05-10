@@ -1,7 +1,14 @@
 = RELEASE HISTORY
 
+== 0.2.0 2010-05-10
+
+* Completely reworked API.
+
+== 0.1.0 2010-05-01
+
+* Same as original, but now a RubyWorks project.
+
 == 0.0.1 2007-07-01
 
-* 1 major enhancement:
-  * Initial release
+* Initial release
 
