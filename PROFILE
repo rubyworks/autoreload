@@ -1,0 +1,20 @@
+--- 
+title  : Autoreload
+summary: Automatically reload library files
+license: MIT 
+contact: rubyworks-mailinglist@googlegroups.com
+suite  : rubyworks
+created: 2007-07-01
+
+authors:
+  - Kouichirou Eto
+  - Thomas Sawyer
+
+description:
+  Autoreload automatically reloads library files when they have been
+  updated. It is especailly useful when testing stateless services
+  such as web applications.
+
+resources:
+  homepage  : http://rubyworks.github.com/autoreload
+  repository: http://github.com/rubyworks/autoreload
