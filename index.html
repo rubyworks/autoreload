@@ -63,7 +63,7 @@
   require 'autoreload'
   require 'foo'
 
-  autoreload(1, true, 'sample1')
+  autoreload('foo', :interval=>1)
 
   loop {
     puts foo

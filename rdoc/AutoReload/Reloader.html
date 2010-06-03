@@ -55,8 +55,8 @@
         <div class="section-body">
           <ul>
           
-            <li class="file"><a href="../lib/autoreload_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/autoreload.rb">lib/autoreload.rb</a></li>
+            <li class="file"><a href="../lib/autoreload/reloader_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/autoreload/reloader.rb">lib/autoreload/reloader.rb</a></li>
           
           </ul>
         </div>
@@ -94,12 +94,17 @@
           
             
             <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton">
               <a href="#method-c-start">::start</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-check_lib">#check_lib</a>
+              <a href="#method-i-check">#check</a>
             </li>
           
             
@@ -109,12 +114,32 @@
           
             
             <li class="method">
+              <a href="#method-i-libraries">#libraries</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-reprime%3F">#reprime?</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-start">#start</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-stop">#stop</a>
+            </li>
+          
+            
+            <li class="method">
               <a href="#method-i-update">#update</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-warn">#warn</a>
+              <a href="#method-i-verbose%3F">#verbose?</a>
             </li>
           
         </ul>
@@ -134,7 +159,11 @@
         
           <li class="file"><a href="../HISTORY.html">HISTORY</a></li>
         
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+        
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
         
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
         
@@ -157,6 +186,10 @@
 
         <!-- classpage.html : classes -->
         <ul class="link-list">
+        
+          <li class="module"><a href="../AutoReload.html">AutoReload</a></li>
+        
+          <li class="module"><a href="../AutoReload/Lookup.html">AutoReload::Lookup</a></li>
         
           <li class="class"><a href="../AutoReload/Reloader.html">AutoReload::Reloader</a></li>
         
@@ -184,7 +217,11 @@
         <h1>Reloader</h1>
       
 
-      
+      <p>
+Reload class does all the heavy lifting for <a
+href="../AutoReload.html">AutoReload</a> library. 
+</p>
+
     </div>
 
     <!-- Constants -->
@@ -195,7 +232,9 @@
       
         <dt><a name="DEFAULT_INTERVAL">DEFAULT_INTERVAL</a></dt>
         
-        <dd class="description"></dd>
+        <dd class="description"><p>
+Default interval is one second.
+</p></dd>
         
       
       </dl>
@@ -204,11 +243,134 @@
 
     <!-- Attributes -->
     
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="thread-attribute-method" class="method-detail">
+        <a name="thread"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">thread</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="files-attribute-method" class="method-detail">
+        <a name="files"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">files</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+List of files provided to autoreload.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="status-attribute-method" class="method-detail">
+        <a name="status"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">status</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Status hash, used to track reloads.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="interval-attribute-method" class="method-detail">
+        <a name="interval"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">interval</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+The periodic interval of reload.
+</p>
+        
+        </div>
+      </div>
+      
+    </div>
+    
 
     <!-- Methods -->
     
     <div id="public-class-method-details" class="method-section section">
       <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(*files)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+New <a href="Reloader.html">Reloader</a>.
+</p>
+<h3>Options</h3>
+<pre>
+  :interval - seconds betwee updates
+  :verbose  - true provides reload warning
+  :reprime  - include $0 in reload list
+</pre>
+<p>
+
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 27</span>
+27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(*<span class="ruby-identifier">files</span>)
+28:       <span class="ruby-identifier">options</span> = <span class="ruby-constant">Hash</span><span class="ruby-operator">===</span><span class="ruby-identifier">files</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+29: 
+30:       <span class="ruby-ivar">@files</span>    = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">to_s</span> } <span class="ruby-comment cmt">#Dir.glob(file) }.flatten.compact</span>
+31: 
+32:       <span class="ruby-ivar">@interval</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:interval</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_INTERVAL</span>
+33:       <span class="ruby-ivar">@verbose</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>]
+34:       <span class="ruby-ivar">@reprime</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:reprime</span>]
+35: 
+36:       <span class="ruby-ivar">@status</span>   = {}
+37:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
 
     
       <div id="start-method" class="method-detail ">
@@ -217,24 +379,179 @@
         <div class="method-heading">
         
           <span class="method-name">start</span><span
-            class="method-args">(*a)</span>
+            class="method-args">(*args)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
 
         <div class="method-description">
           
-          
+          <p>
+Shortcut for Reloader.new(*args).start.
+</p>
           
 
           
           <div class="method-source-code"
             id="start-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 15</span>
-15:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">start</span>(*<span class="ruby-identifier">a</span>)
-16:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">a</span>).<span class="ruby-identifier">start</span>
-17:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 12</span>
+12:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">start</span>(*<span class="ruby-identifier">args</span>)
+13:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>).<span class="ruby-identifier">start</span>
+14:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="reprime--method" class="method-detail ">
+        <a name="method-i-reprime%3F"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">reprime?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Is $0 in the reload list?
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="reprime--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 78</span>
+78:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reprime?</span>
+79:       <span class="ruby-ivar">@reprime</span>
+80:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="start-method" class="method-detail ">
+        <a name="method-i-start"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Start the reload thread.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="start-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 40</span>
+40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>
+41:       <span class="ruby-identifier">update</span> <span class="ruby-comment cmt"># primate the path loads</span>
+42:       <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+43:         <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+44:           <span class="ruby-keyword kw">begin</span>
+45:             <span class="ruby-identifier">update</span>
+46:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span>
+47:             <span class="ruby-identifier">warn</span> <span class="ruby-value str">'update failed: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$!</span>
+48:           <span class="ruby-keyword kw">end</span>
+49:           <span class="ruby-identifier">sleep</span> <span class="ruby-ivar">@interval</span>
+50:         <span class="ruby-keyword kw">end</span>
+51:       <span class="ruby-keyword kw">end</span>
+52:       <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword kw">true</span>
+53:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="stop-method" class="method-detail ">
+        <a name="method-i-stop"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Kills the autoreload thread.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="stop-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stop</span>
+57:       <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">kill</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@thread</span>
+58:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="verbose--method" class="method-detail ">
+        <a name="method-i-verbose%3F"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">verbose?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Provide warning on reload.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="verbose--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 73</span>
+73:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">verbose?</span>
+74:       <span class="ruby-ivar">@verbose</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">$VERBOSE</span>
+75:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -249,12 +566,12 @@
       <h3 class="section-header">Private Instance Methods</h3>
 
     
-      <div id="check-lib-method" class="method-detail ">
-        <a name="method-i-check_lib"></a>
+      <div id="check-method" class="method-detail ">
+        <a name="method-i-check"></a>
 
         <div class="method-heading">
         
-          <span class="method-name">check_lib</span><span
+          <span class="method-name">check</span><span
             class="method-args">(lib)</span>
           <span class="method-click-advice">click to toggle source</span>
         
@@ -262,42 +579,34 @@
 
         <div class="method-description">
           
-          
+          <p>
+Check status and reload if out-of-date.
+</p>
           
 
           
           <div class="method-source-code"
-            id="check-lib-source">
+            id="check-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 57</span>
-57:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_lib</span>(<span class="ruby-identifier">lib</span>)
-58:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
-59:         <span class="ruby-identifier">file</span>, <span class="ruby-identifier">mtime</span> = <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
-60:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>) <span class="ruby-comment cmt"># file is disappered.</span>
-61:         <span class="ruby-identifier">curtime</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>
-62:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mtime</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">curtime</span>
-63:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@verbose</span>
-64:             <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;reload: '#{file}'&quot;</span>
-65:           <span class="ruby-keyword kw">end</span>
-66:           <span class="ruby-identifier">load</span> <span class="ruby-identifier">file</span>    <span class="ruby-comment cmt"># Load it.</span>
-67:           <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = [<span class="ruby-identifier">file</span>, <span class="ruby-identifier">curtime</span>]
-68:         <span class="ruby-keyword kw">end</span>
-69:         <span class="ruby-keyword kw">return</span>
-70:       <span class="ruby-keyword kw">end</span>
-71: 
-72:       <span class="ruby-identifier">check_path</span> = [<span class="ruby-value str">''</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">$LOAD_PATH</span>
-73:       <span class="ruby-identifier">check_path</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
-74:         <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">lib</span>)
-75:         <span class="ruby-identifier">file</span> = <span class="ruby-identifier">lib</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>      <span class="ruby-comment cmt"># Check if the lib is a filename.</span>
-76:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
-77:           <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = [<span class="ruby-identifier">file</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>]
-78:           <span class="ruby-keyword kw">return</span> 
-79:         <span class="ruby-keyword kw">end</span>
-80:       }
-81: 
-82:       <span class="ruby-comment cmt">#raise &quot;The library '#{lib}' is not found.&quot;</span>
-83:       <span class="ruby-comment cmt"># $stdout.puts(message(&quot;The library '#{lib}' is not found.&quot;)) if @verbose</span>
-84:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 102</span>
+102:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check</span>(<span class="ruby-identifier">lib</span>)
+103:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@status</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">lib</span>)
+104:         <span class="ruby-identifier">file</span>, <span class="ruby-identifier">mtime</span> = <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
+105: 
+106:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">file</span>                   <span class="ruby-comment cmt"># file never was</span>
+107:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)  <span class="ruby-comment cmt"># file has disappered</span>
+108: 
+109:         <span class="ruby-identifier">curtime</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>
+110: 
+111:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">mtime</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">curtime</span>
+112:           <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;reload: '#{file}'&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose?</span>
+113:           <span class="ruby-identifier">load</span> <span class="ruby-identifier">file</span>
+114:           <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = [<span class="ruby-identifier">file</span>, <span class="ruby-identifier">curtime</span>]
+115:         <span class="ruby-keyword kw">end</span>
+116:       <span class="ruby-keyword kw">else</span>
+117:         <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>] = <span class="ruby-identifier">get_status</span>(<span class="ruby-identifier">lib</span>)
+118:       <span class="ruby-keyword kw">end</span>
+119:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -312,27 +621,72 @@
         <div class="method-heading">
         
           <span class="method-name">get_status</span><span
-            class="method-args">(file)</span>
+            class="method-args">(lib)</span>
           <span class="method-click-advice">click to toggle source</span>
         
         </div>
 
         <div class="method-description">
           
-          
+          <p>
+Get library file status.
+</p>
           
 
           
           <div class="method-source-code"
             id="get-status-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 86</span>
-86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_status</span>(<span class="ruby-identifier">file</span>)
-87:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
-88:         <span class="ruby-keyword kw">return</span> [<span class="ruby-identifier">file</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>]
-89:       <span class="ruby-keyword kw">end</span>
-90:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
-91:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 122</span>
+122:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_status</span>(<span class="ruby-identifier">lib</span>)
+123:       <span class="ruby-identifier">file</span> = <span class="ruby-constant">Lookup</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">lib</span>).<span class="ruby-identifier">first</span>
+124:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">file</span> <span class="ruby-comment cmt">#FileTest.exist?(file)</span>
+125:         [<span class="ruby-identifier">file</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>]
+126:       <span class="ruby-keyword kw">else</span>
+127:         <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;reload fail: library '#{lib}' not found&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">verbose?</span>
+128:         <span class="ruby-comment cmt">#raise &quot;The library '#{lib}' is not found.&quot;</span>
+129:         <span class="ruby-comment cmt">#$stdout.puts(message(&quot;The library '#{lib}' is not found.&quot;)) if @verbose</span>
+130:         [<span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">nil</span>]
+131:       <span class="ruby-keyword kw">end</span>
+132:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="libraries-method" class="method-detail ">
+        <a name="method-i-libraries"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">libraries</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+List of library files to autoreload.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="libraries-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 88</span>
+88:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">libraries</span>
+89:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@files</span>.<span class="ruby-identifier">empty?</span>
+90:         <span class="ruby-ivar">@reprime</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">$0</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">$&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">$&quot;</span>
+91:       <span class="ruby-keyword kw">else</span>
+92:         <span class="ruby-ivar">@files</span>
+93:       <span class="ruby-keyword kw">end</span>
+94:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -354,53 +708,19 @@
 
         <div class="method-description">
           
-          
+          <p>
+Iterate through all selection library files and reload if needed.
+</p>
           
 
           
           <div class="method-source-code"
             id="update-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 50</span>
-50:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
-51:       <span class="ruby-identifier">libs</span> = [<span class="ruby-identifier">$0</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">$&quot;</span>
-52:       <span class="ruby-identifier">libs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
-53:         <span class="ruby-identifier">check_lib</span>(<span class="ruby-identifier">lib</span>)
-54:       }
-55:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="warn-method" class="method-detail ">
-        <a name="method-i-warn"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">warn</span><span
-            class="method-args">(msg, out = $stderr)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="warn-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/autoreload.rb, line 45</span>
-45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">out</span> = <span class="ruby-identifier">$stderr</span>)
-46:       <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;#{@name}: #{msg}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@name</span>
-47:       <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">msg</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;\n&quot;</span>
-48:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 97</span>
+97:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update</span>
+98:       <span class="ruby-identifier">libraries</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span> <span class="ruby-identifier">check</span>(<span class="ruby-identifier">lib</span>) }
+99:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
