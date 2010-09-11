@@ -1,11 +1,14 @@
-#!mast -x Syckfile bin examples lib meta test [A-Z]*
+#!mast -x Syckfile bin demo lib meta qed test [A-Z]*
+demo/foo.rb
+demo/sample1.rb
 lib/autoreload/lookup.rb
 lib/autoreload/reloader.rb
 lib/autoreload.rb
+meta/data.rb
+meta/gemfile
+meta/profile
 test/test_autoreload.rb
 test/test_helper.rb
-PROFILE
 LICENSE
 README.rdoc
 HISTORY
-VERSION
