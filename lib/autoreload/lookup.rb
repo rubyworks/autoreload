@@ -34,7 +34,8 @@ module AutoReload
       plugins = []
       #directory = options[:directory] || DIRECTORY
       if defined?(::Roll)
-        ::Roll::Library.ledger.each do |name, lib|
+        # Not ::Roll::Library ?
+        ::Library.ledger.each do |name, lib|
           lib = lib.sort.first if Array===lib
           lib.loadpath.each do |path|
             #find = File.join(lib.location, path, directory, match)

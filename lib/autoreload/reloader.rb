@@ -137,4 +137,3 @@ end
 
 # Copyright (C) 2003,2007 Kouichirou Eto
 # Copyright (C) 2010 Thomas Sawyer
-
