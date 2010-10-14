@@ -157,13 +157,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../HISTORY.html">HISTORY</a></li>
-        
-          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
-        
-          <li class="file"><a href="../VERSION.html">VERSION</a></li>
         
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
         
@@ -205,7 +201,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
       <br/><br/>
     </div>
   </div>
@@ -218,8 +214,8 @@
       
 
       <p>
-Reload class does all the heavy lifting for <a
-href="../AutoReload.html">AutoReload</a> library. 
+Reload class does all the heavy lifting for <a
+href="../AutoReload.html">AutoReload</a> library. 
 </p>
 
     </div>
@@ -257,7 +253,9 @@ Default interval is one second.
 
         <div class="method-description">
         
-        
+        <p>
+
+</p>
         
         </div>
       </div>
@@ -338,7 +336,7 @@ The periodic interval of reload.
           <p>
 New <a href="Reloader.html">Reloader</a>.
 </p>
-<h3>Options</h3>
+<h3>Options</h3>
 <pre>
   :interval - seconds betwee updates
   :verbose  - true provides reload warning
@@ -357,7 +355,7 @@ New <a href="Reloader.html">Reloader</a>.
 27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(*<span class="ruby-identifier">files</span>)
 28:       <span class="ruby-identifier">options</span> = <span class="ruby-constant">Hash</span><span class="ruby-operator">===</span><span class="ruby-identifier">files</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
 29: 
-30:       <span class="ruby-ivar">@files</span>    = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">to_s</span> } <span class="ruby-comment cmt">#Dir.glob(file) }.flatten.compact</span>
+30:       <span class="ruby-ivar">@files</span>    = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">to_s</span> } <span class="ruby-comment cmt">#Dir.glob(file) }.flatten.compact</span>
 31: 
 32:       <span class="ruby-ivar">@interval</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:interval</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_INTERVAL</span>
 33:       <span class="ruby-ivar">@verbose</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>]
@@ -471,7 +469,7 @@ Start the reload thread.
 <pre>
     <span class="ruby-comment cmt"># File lib/autoreload/reloader.rb, line 40</span>
 40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>
-41:       <span class="ruby-identifier">update</span> <span class="ruby-comment cmt"># primate the path loads</span>
+41:       <span class="ruby-identifier">update</span> <span class="ruby-comment cmt"># primate the path loads</span>
 42:       <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
 43:         <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
 44:           <span class="ruby-keyword kw">begin</span>
@@ -593,8 +591,8 @@ Check status and reload if out-of-date.
 103:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@status</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">lib</span>)
 104:         <span class="ruby-identifier">file</span>, <span class="ruby-identifier">mtime</span> = <span class="ruby-ivar">@status</span>[<span class="ruby-identifier">lib</span>]
 105: 
-106:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">file</span>                   <span class="ruby-comment cmt"># file never was</span>
-107:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)  <span class="ruby-comment cmt"># file has disappered</span>
+106:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">file</span>                   <span class="ruby-comment cmt"># file never was</span>
+107:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)  <span class="ruby-comment cmt"># file has disappered</span>
 108: 
 109:         <span class="ruby-identifier">curtime</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">to_i</span>
 110: 
@@ -670,8 +668,17 @@ Get library file status.
 
         <div class="method-description">
           
-          <p>
-List of library files to autoreload.
+          <pre>
+ List of library files to autoreload.
+</pre>
+<p>
+&#8212;
+</p>
+<pre>
+ ISSUE: Why include $0 ?
+</pre>
+<p>
+&#8212;
 </p>
           
 

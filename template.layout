@@ -3,23 +3,23 @@ stencil: erb
 
 --- html
 <%
-  require 'pom'
-  project  = POM::Project.new('..')
+  require 'gemdo'
+  project  = Gemdo::Project.new('..')
   version  = project.version
   title    = project.metadata.title
-  download = project.metadata.sites.download
+  download = project.metadata.resources.gem
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="assets/screen.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
       <%= title %>
   </title>
-  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+  <script src="assets/rounded_corners_lite.inc.js" type="text/javascript"></script>
 <style>
 
 </style>

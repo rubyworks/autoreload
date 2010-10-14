@@ -122,13 +122,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../HISTORY.html">HISTORY</a></li>
-        
-          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
           <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
-        
-          <li class="file"><a href="../VERSION.html">VERSION</a></li>
         
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
         
@@ -170,7 +166,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
       <br/><br/>
     </div>
   </div>
@@ -213,7 +209,7 @@ This library is a slightly modified copy of the <tt>plugin</tt> library.
         <div class="method-description">
           
           <p>
-Shortcut for <a href="Lookup.html#method-i-find">#</a>.
+Shortcut for <a href="Lookup.html#method-i-find">find</a>.
 </p>
 <pre>
   Lookup['syckle/*']</pre>
@@ -299,20 +295,20 @@ TODO: Is there anyway to skip active gems?
           <div class="method-source-code"
             id="find-gems-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload/lookup.rb, line 72</span>
-72:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_gems</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">options</span>={})
-73:       <span class="ruby-identifier">plugins</span> = []
-74:       <span class="ruby-comment cmt">#directory = options[:directory] || DIRECTORY</span>
-75:       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Gem</span>)
-76:         <span class="ruby-operator">::</span><span class="ruby-constant">Gem</span>.<span class="ruby-identifier">latest_load_paths</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
-77:           <span class="ruby-comment cmt">#list = Dir.glob(File.join(path, directory, match))</span>
-78:           <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>))
-79:           <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
-80:           <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
-81:         <span class="ruby-keyword kw">end</span>
-82:       <span class="ruby-keyword kw">end</span>
-83:       <span class="ruby-identifier">plugins</span>
-84:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/lookup.rb, line 73</span>
+73:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_gems</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">options</span>={})
+74:       <span class="ruby-identifier">plugins</span> = []
+75:       <span class="ruby-comment cmt">#directory = options[:directory] || DIRECTORY</span>
+76:       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Gem</span>)
+77:         <span class="ruby-operator">::</span><span class="ruby-constant">Gem</span>.<span class="ruby-identifier">latest_load_paths</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+78:           <span class="ruby-comment cmt">#list = Dir.glob(File.join(path, directory, match))</span>
+79:           <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>))
+80:           <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
+81:           <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
+82:         <span class="ruby-keyword kw">end</span>
+83:       <span class="ruby-keyword kw">end</span>
+84:       <span class="ruby-identifier">plugins</span>
+85:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -346,19 +342,19 @@ Activated gem versions are in here too.
           <div class="method-source-code"
             id="find-loadpath-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/autoreload/lookup.rb, line 55</span>
-55:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_loadpath</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">options</span>={})
-56:       <span class="ruby-identifier">plugins</span> = []
-57:       <span class="ruby-comment cmt">#directory = options[:directory] || DIRECTORY</span>
-58:       <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
-59:         <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
-60:         <span class="ruby-comment cmt">#list = Dir.glob(File.join(path, directory, match))</span>
-61:         <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>))
-62:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
-63:         <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
-64:       <span class="ruby-keyword kw">end</span>
-65:       <span class="ruby-identifier">plugins</span>
-66:     <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/autoreload/lookup.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find_loadpath</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">options</span>={})
+57:       <span class="ruby-identifier">plugins</span> = []
+58:       <span class="ruby-comment cmt">#directory = options[:directory] || DIRECTORY</span>
+59:       <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+60:         <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+61:         <span class="ruby-comment cmt">#list = Dir.glob(File.join(path, directory, match))</span>
+62:         <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>))
+63:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
+64:         <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
+65:       <span class="ruby-keyword kw">end</span>
+66:       <span class="ruby-identifier">plugins</span>
+67:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>
@@ -394,19 +390,20 @@ Search roll for current or latest libraries.
 34:       <span class="ruby-identifier">plugins</span> = []
 35:       <span class="ruby-comment cmt">#directory = options[:directory] || DIRECTORY</span>
 36:       <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Roll</span>)
-37:         <span class="ruby-operator">::</span><span class="ruby-constant">Roll</span><span class="ruby-operator">::</span><span class="ruby-constant">Library</span>.<span class="ruby-identifier">ledger</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
-38:           <span class="ruby-identifier">lib</span> = <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Array</span><span class="ruby-operator">===</span><span class="ruby-identifier">lib</span>
-39:           <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">loadpath</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
-40:             <span class="ruby-comment cmt">#find = File.join(lib.location, path, directory, match)</span>
-41:             <span class="ruby-identifier">find</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">lib</span>.<span class="ruby-identifier">location</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>)
-42:             <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">find</span>)
-43:             <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
-44:             <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
-45:           <span class="ruby-keyword kw">end</span>
-46:         <span class="ruby-keyword kw">end</span>
-47:       <span class="ruby-keyword kw">end</span>
-48:       <span class="ruby-identifier">plugins</span>
-49:     <span class="ruby-keyword kw">end</span></pre>
+37:         <span class="ruby-comment cmt"># Not ::Roll::Library ?</span>
+38:         <span class="ruby-operator">::</span><span class="ruby-constant">Library</span>.<span class="ruby-identifier">ledger</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
+39:           <span class="ruby-identifier">lib</span> = <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Array</span><span class="ruby-operator">===</span><span class="ruby-identifier">lib</span>
+40:           <span class="ruby-identifier">lib</span>.<span class="ruby-identifier">loadpath</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+41:             <span class="ruby-comment cmt">#find = File.join(lib.location, path, directory, match)</span>
+42:             <span class="ruby-identifier">find</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">lib</span>.<span class="ruby-identifier">location</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">match</span>)
+43:             <span class="ruby-identifier">list</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">find</span>)
+44:             <span class="ruby-identifier">list</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-value str">'/'</span>) }
+45:             <span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">list</span>)
+46:           <span class="ruby-keyword kw">end</span>
+47:         <span class="ruby-keyword kw">end</span>
+48:       <span class="ruby-keyword kw">end</span>
+49:       <span class="ruby-identifier">plugins</span>
+50:     <span class="ruby-keyword kw">end</span></pre>
           </div>
           
         </div>

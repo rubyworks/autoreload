@@ -46,7 +46,8 @@ You'll see the number 2 is shown.
 
 ## Documents
 
-* [API Reference](rdoc/)
+* [RDoc API](docs/api/)
+* [RubyDoc.info](http://rubydoc.info/gems/autoreload/frames)
 
 ## Repository
 
