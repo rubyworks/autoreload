@@ -1,6 +1,6 @@
 #!mast -x Syckfile bin demo lib meta qed spec [A-Z]*
-demo/foo.rb
-demo/tryme.rb
+demo/changeme.rb
+demo/start.rb
 lib/autoreload/lookup.rb
 lib/autoreload/meta/data.rb
 lib/autoreload/meta/package
