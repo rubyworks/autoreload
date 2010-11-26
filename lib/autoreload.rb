@@ -1,4 +1,4 @@
-require 'autoreload/meta/data'
+require 'autoreload/version'
 require 'autoreload/reloader'
 
 def autoreload(*files)
