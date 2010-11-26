@@ -36,13 +36,13 @@ describe "AutoReload" do
     # check the number
     foo.should == 1
 
-  	# wait is needed for time stamp to not be same with the next file.
+    # wait is needed for time stamp to not be same with the next file.
     sleep 1
 
     # recreate the file
     library.write 'def foo; 2; end'
 
-  	# wait again for the autoreload loop to repeat.
+    # wait again for the autoreload loop to repeat.
     sleep 2
 
     # check the number again
