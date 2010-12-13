@@ -1,5 +1,5 @@
 --- 
-title  : Autoreload
+title  : AutoReload
 summary: Automatically reload library files
 license: MIT 
 contact: rubyworks-mailinglist@googlegroups.com
