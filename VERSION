@@ -1,8 +1,1 @@
-name    : autoreload
-date    : 2010-10-14
-version : 0.3.0
-
-requires:
-  - syckle (build)
-  - rspec  (test)
-
+0.3.0

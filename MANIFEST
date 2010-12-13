@@ -1,4 +1,5 @@
-#!mast -x Syckfile bin demo lib qed spec [A-Z]*
+#!mast -x Syckfile .ruby bin demo lib qed spec [A-Z]*
+.ruby
 demo/changeme.rb
 demo/start.rb
 lib/autoreload/lookup.rb

@@ -6,6 +6,10 @@ contact: rubyworks-mailinglist@googlegroups.com
 suite  : rubyworks
 created: 2007-07-01
 
+requires:
+  - syckle (build)
+  - rspec  (test)
+
 authors:
   - Kouichirou Eto
   - Thomas Sawyer
