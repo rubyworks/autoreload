@@ -1,7 +1,7 @@
 --- 
 title  : AutoReload
 summary: Automatically reload library files
-license: MIT 
+license: Apache 2.0
 contact: rubyworks-mailinglist@googlegroups.com
 suite  : rubyworks
 created: 2007-07-01
