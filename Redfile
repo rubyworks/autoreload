@@ -14,13 +14,12 @@ gemcutter:
   service: GemCutter
   active: true
 
-box:
-  service: Box
-  types  : [gem]
+gem:
+  service: Gem
   active : true
 
 ridoc:
-  service: RIDoc
+  service: RI
   include: ~
   exclude: ~
   output : ri
@@ -28,9 +27,9 @@ ridoc:
 
 rdoc:
   service : RDoc
-  template: newfish
+  format  : newfish
   include : ~
-  exclude : [ Syckfile ]
+  exclude : [ Redfile, Profile, Version, MANIFEST ]
   output  : site/docs/api
   active  : true
 
