@@ -1,15 +1,11 @@
-#!mast -x Syckfile .ruby bin demo lib qed spec [A-Z]*
+#!mast .ruby bin demo lib qed spec [A-Z][A-Z]*
 .ruby
-demo/changeme.rb
-demo/start.rb
 lib/autoreload/lookup.rb
 lib/autoreload/reloader.rb
 lib/autoreload/version.rb
-lib/autoreload/version.yml
 lib/autoreload.rb
 spec/autoreload_spec.rb
 HISTORY.rdoc
-PROFILE
-LICENSE
 README.rdoc
-VERSION
+GPL3.txt
+COPYING.rdoc
