@@ -1,14 +1,16 @@
 = Autoreload
 
-* home: http://rubyworks.github.com/autoreload
-* work: http://github.com/rubyworks/autoreload
-
-
 == DESCRIPTION
 
 Autoreload automatically reloads library files when they have been
 updated. It is especailly useful when testing stateless services
 such as web applications.
+
+
+== RESOURCES
+
+* home: http://rubyworks.github.com/autoreload
+* work: http://github.com/rubyworks/autoreload
 
 
 == HOW TO USE
@@ -37,6 +39,9 @@ effect in <tt>example.rb</tt> within two seconds of being made.
 
 == COPYRIGHT
 
-Copyright (c) 2007 Kouichirou Eto
+(GPL v3 License)
 
-Copyright (c) 2010 Thomas Sawyer
+* Copyright (c) 2007 Kouichirou Eto
+* Copyright (c) 2010 Thomas Sawyer
+
+See COPYING.rdoc for more information.
