@@ -1,8 +1,9 @@
-Sat, 07 May 2011 13:40:38 -0400
+Sun, 15 May 2011 14:03:11 -0400
+COPYING.rdoc	Sun, 15 May 2011 14:00:41 -0400
+GPL3.txt	Sun, 15 May 2011 13:58:13 -0400
 HISTORY.rdoc	Wed, 13 Oct 2010 22:12:40 -0400
 lib/autoreload.rb	Fri, 26 Nov 2010 08:20:58 -0500
 lib/autoreload/version.rb	Sun, 12 Dec 2010 22:02:27 -0500
-README.rdoc	Mon, 10 May 2010 14:32:39 -0400
+README.rdoc	Sun, 15 May 2011 14:00:59 -0400
 lib/autoreload/lookup.rb	Wed, 13 Oct 2010 21:46:26 -0400
 lib/autoreload/reloader.rb	Wed, 13 Oct 2010 22:04:54 -0400
-APACHE2.txt	Sun, 12 Dec 2010 22:24:50 -0500
