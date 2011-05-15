@@ -1,5 +1,10 @@
 = RELEASE HISTORY
 
+== 0.3.1 (2011-05-15)
+
+This release simply fixes licensing issues. Autoreload is licensed
+under the GPL v3.
+
 
 == 0.3.0 (2010-10-14)
 
