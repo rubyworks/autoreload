@@ -30,7 +30,7 @@ rdoc:
   format  : newfish
   include : ~
   exclude : [ Redfile, Profile, Version, MANIFEST ]
-  output  : site/docs/api
+  output  : site/doc
   active  : true
 
 syntax:
