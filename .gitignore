@@ -1,5 +1,6 @@
+.yardoc
 log
 ri
 pkg
 tmp
-site/docs
+site/doc
