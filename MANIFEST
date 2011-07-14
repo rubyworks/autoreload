@@ -1,4 +1,4 @@
-#!mast .ruby bin demo lib qed spec [A-Z][A-Z]*
+#!mast .ruby .yardopts bin lib qed spec try [A-Z][A-Z]*
 .ruby
 lib/autoreload/lookup.rb
 lib/autoreload/reloader.rb

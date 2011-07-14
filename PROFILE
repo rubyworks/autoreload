@@ -1,13 +1,9 @@
 --- 
 title  : AutoReload
 summary: Automatically reload library files
-license: Apache 2.0
-contact: rubyworks-mailinglist@googlegroups.com
-suite  : rubyworks
-created: 2007-07-01
 
-requires:
-  - redline (build)
+requirements:
+  - detroit (build)
   - rspec   (test)
 
 authors:
@@ -24,3 +20,7 @@ resources:
   code: http://github.com/rubyworks/autoreload
   gem:  http://rubygems.org/gems/autoreload
 
+created: 2007-07-01
+
+copyright: 2007 Kouichiro Eto 
+license  : GPL-3.0

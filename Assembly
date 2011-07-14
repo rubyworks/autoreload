@@ -1,0 +1,40 @@
+---
+email:
+  file    : ~
+  subject : ~
+  mailto  :
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+
+gem:
+  active: true
+
+github:
+  active: true
+
+yard:
+  yardopts: true
+  priority: 2
+
+minitest:
+  tests    : spec/*_spec.rb
+  loadpath : lib
+  requires : ~
+  active   : true
+
+dnote:
+  service : DNote
+  labels  : ~
+  output  : log/DNOTE.rdoc
+
+#locat:
+#  title    : ~
+#  loadpath : ~
+#  exclude  : ~
+#  output   : log/LOCat.html
+#  active   : true
+
+vclog:
+  output : log/ChangeLog.rdoc
+  active : false
+
