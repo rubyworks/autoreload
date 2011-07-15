@@ -1,6 +1,17 @@
+require 'minitest/spec'
+require 'minitest/autorun'
+
 require 'fileutils'
 require 'pathname'
 require 'autoreload'
+
+# Some helper stuff....
+
+# create a tmp directory
+FileUtils.mkdir('tmp') unless File.exist?('tmp')
+
+$LOAD_PATH.unshift 'lib'
+$LOAD_PATH.unshift 'tmp'
 
 class Pathname
   def write(str)
@@ -16,11 +27,9 @@ module AutoReload
   end
 end
 
-describe "AutoReload" do
+# Okay, now the test...
 
-  before :all do
-    FileUtils.mkdir('tmp') unless File.exist?('tmp')
-  end
+describe "AutoReload" do
 
   it "should autoreload" do
     # create a library
@@ -28,16 +37,15 @@ describe "AutoReload" do
     library.write 'def foo; 1; end'
 
     # setup the autoreload
-    autoreload(library.to_s, :interval => 1) #, :verbose=>true)
-
-    # require it
-    require "#{library}"
+    autoreload(:interval => 1) do #, :verbose=>true)
+      require "library"
+    end
 
     # check the number
-    foo.should == 1
+    foo.must_equal 1
 
     # wait is needed for time stamp to not be same with the next file.
-    sleep 1
+    sleep 2
 
     # recreate the file
     library.write 'def foo; 2; end'
@@ -46,7 +54,7 @@ describe "AutoReload" do
     sleep 2
 
     # check the number again
-    foo.should == 2
+    foo.must_equal 2
 
     # clean up
     library.unlink

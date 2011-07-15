@@ -1,6 +1,7 @@
 require 'autoreload/version'
 require 'autoreload/reloader'
 
-def autoreload(*files)
-  AutoReload::Reloader.start(*files)
+# Reload features automatically at given intervals.
+def autoreload(options={}, &block)
+  AutoReload::Reloader.start(options, &block)
 end
