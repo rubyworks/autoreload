@@ -22,5 +22,7 @@ resources:
 
 created: 2007-07-01
 
-copyright: 2007 Kouichiro Eto 
-license  : GPL-3.0
+copyrights:
+  - 2007 Kouichiro Eto (GPL-3.0)
+  - 2010 Thomas Sawyer (GPL-3.0)
+ 

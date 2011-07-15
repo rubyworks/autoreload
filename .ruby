@@ -3,8 +3,12 @@ authors:
 - name: Kouichirou Eto
 - name: Thomas Sawyer
 copyrights: 
-- holder: Kouichirou Eto
+- holder: Kouichiro Eto
   year: "2007"
+  license: GPL-3.0
+- holder: Thomas Sawyer
+  year: "2010"
+  license: GPL-3.0
 replacements: []
 
 conflicts: []
