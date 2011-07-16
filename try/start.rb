@@ -9,9 +9,10 @@ $LOAD_PATH.unshift(File.join(__dir__, '../lib'))
 library = './' + __dir__ + '/changeme.rb'
 
 require 'autoreload'
-require library
 
-autoreload(library, :interval=>1, :verbose=>true)
+autoreload(:interval=>1, :verbose=>true)
+  require library
+end
 
 loop {
   puts message
