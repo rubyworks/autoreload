@@ -1,6 +1,4 @@
-# sample1.rb
-
-# Run this script and change 'foo.rb' while this script is running.
+puts "Edit 'changme.rb' while this script is still running."
 
 __dir__ = File.dirname(__FILE__)
 
@@ -10,7 +8,7 @@ library = './' + __dir__ + '/changeme.rb'
 
 require 'autoreload'
 
-autoreload(:interval=>1, :verbose=>true)
+autoreload(:interval=>1, :verbose=>true) do
   require library
 end
 
