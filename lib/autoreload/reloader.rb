@@ -33,7 +33,7 @@ module AutoReload
       features = $".dup
       if block
         block.call
-        @files = $" - features
+        @files = ($" - features).reverse
       else
         @files = []
       end
@@ -47,7 +47,7 @@ module AutoReload
           begin
             update
           rescue Exception
-            warn 'update failed: ' + $!
+            warn 'autoreload failed unexpectedly: ' + $!
           end
           sleep @interval
         end
@@ -105,20 +105,27 @@ module AutoReload
     # store the full path.
     if RUBY_VERSION < '1.9'
       def check(lib)
-        warn "reload: '#{file}'" if verbose?
-        load lib
+        warn "reload: '#{lib}'" if verbose?
+        begin
+          load lib
+        rescue LoadError
+          # file has been removed
+        end
       end
     else
       # Check status and reload if out-of-date.
       def check(lib)
         file, mtime = @status[lib]
         if file
-          return unless FileTest.exist?(file)  # file has been removed
-          curtime = File.mtime(file).to_i
-          if mtime < curtime
-            warn "reload: '#{file}'" if verbose?
-            load file
-            @status[lib] = [file, curtime]
+          if FileTest.exist?(file)
+            curtime = File.mtime(file).to_i
+            if mtime < curtime
+              warn "reload: '#{file}'" if verbose?
+              load file
+              @status[lib] = [file, curtime]
+            end
+          else
+            # file has been removed
           end
         else
           @status[lib] = get_status(lib)
