@@ -46,8 +46,8 @@ when files are updated.
 In this situation, run the script `sample1.rb`. You see that the
 number 1 is shown repeatedly. Then, while that is still running,
 update the file `foo.rb`. For example, change the number 1 to 2
-and save it. Then, the library automatically check the update
-and reload it. You'll see the number 2 is shown.
+and save it. AutoReload weill automatically detect the update
+and reload it. And the number 2 will be shown instead.
 
 
 ## Documentation

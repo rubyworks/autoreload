@@ -1,6 +1,6 @@
 = RELEASE HISTORY
 
-== 1.0.0 (2011-07-15)
+== 1.0.0 (2011-07-16)
 
 This release overhauls the API. The #autoreload method now
 takes a block. All libraries required within this block
