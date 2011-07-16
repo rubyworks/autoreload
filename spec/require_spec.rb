@@ -2,14 +2,16 @@ require File.expand_path(File.dirname(__FILE__) + '/helper')
 
 describe "AutoReload" do
 
-  it "should autoreload" do
-    # create a library
-    library = Pathname.new('tmp/library.rb')
-    library.write 'def foo; 1; end'
+  it "should autoreload a require of a require" do
+    library1 = Pathname.new('tmp/library1.rb')
+    library2 = Pathname.new('tmp/library2.rb')
+
+    library1.write "require 'library2'"
+    library2.write "def foo; 1; end"
 
     # setup the autoreload
     autoreload(:interval => 1) do #, :verbose=>true)
-      require "library"
+      require "library1"
     end
 
     # check the number
@@ -19,7 +21,7 @@ describe "AutoReload" do
     sleep 2
 
     # recreate the file
-    library.write 'def foo; 2; end'
+    library2.write "def foo; 2; end"
 
     # wait again for the autoreload loop to repeat.
     sleep 2
@@ -28,7 +30,8 @@ describe "AutoReload" do
     foo.must_equal 2
 
     # clean up
-    library.delete
+    library2.delete
+    library1.delete
   end
 
 end
