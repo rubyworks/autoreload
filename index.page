@@ -1,0 +1,80 @@
+layout: template
+
+--- markdown
+
+# you don't have to restart your program
+
+
+## What Is It?
+
+Autoreload reloads libraries automatically at regular intervals
+when files are updated.
+
+
+## Installing
+
+<pre syntax="ruby">$ gem install autoreload</pre>
+
+
+## The Basics
+
+--- html
+
+<pre class="ruby">
+  # foo.rb
+  def foo
+    1
+  end
+</pre>
+
+<pre class="ruby">
+  # sample1.rb
+  require 'autoreload'
+
+  autoreload(:interval=>1, :verbose=>true) do
+    require 'foo'
+  end
+
+  loop {
+    puts foo
+    sleep 1
+  }
+</pre>
+
+--- markdown
+
+In this situation, run the script `sample1.rb`. You see that the
+number 1 is shown repeatedly. Then, while that is still running,
+update the file `foo.rb`. For example, change the number 1 to 2
+and save it. Then, the library automatically check the update
+and reload it. You'll see the number 2 is shown.
+
+
+## Documentation
+
+* [RubyDoc.info](http://rubydoc.info/gems/autoreload/frames)
+
+
+## Repository
+
+This project is hosted on [GitHub.com](http://rubyworks.github.com/autoreload).
+
+The repository is <code>git://github.com/rubyworks/autoreload.git</code>
+for anonymous access.
+
+
+## Copying
+
+(FreeBSD License)
+
+Copyright (c) 2010 Thomas Sawyer
+
+Copyright (c) 2003 Kouichirou Eto
+
+
+## Contact
+
+Comments are welcome. Send an email to Trans "transfire _at_ gmail _dot_ org".
+
+Autoreload is a [RubyWorks](http://rubyworks.github.com) project.
+
