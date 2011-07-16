@@ -30,17 +30,18 @@
   <h1 class="title">AutoReload</h1>
   <div id="version" class="clickable" onclick='document.location = "http://rubygems.org/gems/autoreload"; return false'>
     <p>Get Version</p>
-    <a href="http://rubygems.org/gems/autoreload" class="numbers">0.3.0</a>
+    <a href="http://rubygems.org/gems/autoreload" class="numbers">1.0.0</a>
   </div>
   <h1>you don't have to restart your program</h1>
 
 <h2>What Is It?</h2>
 
-<p>Autoreload reloads libraries automatically when files are updated.</p>
+<p>Autoreload reloads libraries automatically at regular intervals
+when files are updated.</p>
 
 <h2>Installing</h2>
 
-<pre syntax="ruby">$ sudo gem install autoreload</pre>
+<pre syntax="ruby">$ gem install autoreload</pre>
 
 
 <h2>The Basics</h2>
@@ -56,9 +57,10 @@
 <pre class="ruby">
   # sample1.rb
   require 'autoreload'
-  require 'foo'
 
-  autoreload('foo.rb', :interval=>1, :verbose=>true)
+  autoreload(:interval=>1, :verbose=>true) do
+    require 'foo'
+  end
 
   loop {
     puts foo
@@ -67,43 +69,42 @@
 </pre>
 
 
-<p>In this situation, run the script 'sample1.rb'.
-You see that the number 1 is shown repeatedly.
-Then, update the file 'foo.rb'.
-For example, change the number 1 to 2 and save it.
-Then, the library automatically check the update and reload it.
-You'll see the number 2 is shown.</p>
+<p>In this situation, run the script <code>sample1.rb</code>. You see that the
+number 1 is shown repeatedly. Then, while that is still running,
+update the file <code>foo.rb</code>. For example, change the number 1 to 2
+and save it. Then, the library automatically check the update
+and reload it. You'll see the number 2 is shown.</p>
 
-<h2>Documents</h2>
+<h2>Documentation</h2>
 
 <ul>
-<li><a href="doc/">API</a></li>
 <li><a href="http://rubydoc.info/gems/autoreload/frames">RubyDoc.info</a></li>
 </ul>
 
 
 <h2>Repository</h2>
 
-<p>This project is hosted on <a href="http://github.com">GitHub.com</a>.</p>
+<p>This project is hosted on <a href="http://rubyworks.github.com/autoreload">GitHub.com</a>.</p>
 
-<p>The repository is <code>git://github.com/rubyworks/autoreload.git</code> for anonymous access.</p>
+<p>The repository is <code>git://github.com/rubyworks/autoreload.git</code>
+for anonymous access.</p>
 
 <h2>Copying</h2>
 
-<p>(GPL v3 License)</p>
+<p>(FreeBSD License)</p>
 
 <p>Copyright (c) 2010 Thomas Sawyer</p>
 
-<p>Copyright (c) 2007 Kouichirou Eto</p>
+<p>Copyright (c) 2003 Kouichirou Eto</p>
 
 <h2>Contact</h2>
 
 <p>Comments are welcome. Send an email to Trans "transfire <em>at</em> gmail <em>dot</em> org".</p>
 
-<p>Autoreload is a <a href="http://github.com/rubyworks/autoreload/">Rubyworks</a> project.</p>
+<p>Autoreload is a <a href="http://rubyworks.github.com">RubyWorks</a> project.</p>
 
   <p class="coda">
-    <a href="mailto:transfire@gmail.com">Trans</a>, 2011-05-07<br>
+    <a href="mailto:transfire@gmail.com">Trans</a>, 2011-07-15<br>
     Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
   </p>
 </div>
