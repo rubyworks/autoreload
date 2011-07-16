@@ -4,7 +4,7 @@ summary: Automatically reload library files
 
 requirements:
   - detroit (build)
-  - rspec   (test)
+  - minitest (test)
 
 authors:
   - Kouichirou Eto
@@ -23,6 +23,6 @@ resources:
 created: 2007-07-01
 
 copyrights:
-  - 2007 Kouichiro Eto (GPL-3.0)
-  - 2010 Thomas Sawyer (GPL-3.0)
+  - 2010 Thomas Sawyer (BSD-2)
+  - 2003 Kouichiro Eto (RUBY)
  

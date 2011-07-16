@@ -1,46 +1,42 @@
---- 
-authors: 
+---
+authors:
 - name: Kouichirou Eto
 - name: Thomas Sawyer
-copyrights: 
-- holder: Kouichiro Eto
-  year: "2007"
-  license: GPL-3.0
+copyrights:
 - holder: Thomas Sawyer
-  year: "2010"
-  license: GPL-3.0
+  year: '2010'
+  license: BSD-2
+- holder: Kouichiro Eto
+  year: '2003'
+  license: RUBY
 replacements: []
-
 conflicts: []
-
-requirements: 
+requirements:
 - name: detroit
-  groups: 
+  groups:
   - build
   development: true
-- name: rspec
-  groups: 
+- name: minitest
+  groups:
   - test
   development: true
 dependencies: []
-
 repositories: []
-
-resources: 
+resources:
   home: http://rubyworks.github.com/autoreload
   code: http://github.com/rubyworks/autoreload
   gem: http://rubygems.org/gems/autoreload
-load_path: 
+load_path:
 - lib
-extra: 
+extra:
   manifest: MANIFEST
 alternatives: []
-
 revision: 0
 title: AutoReload
 summary: Automatically reload library files
-description: Autoreload automatically reloads library files when they have been updated. It is especailly useful when testing stateless services such as web applications.
-created: "2007-07-01"
-version: 0.3.1
+description: Autoreload automatically reloads library files when they have been updated.
+  It is especially useful when testing stateless services such as web applications.
+created: '2007-07-01'
+version: 1.0.0
 name: autoreload
-date: "2011-07-14"
+date: '2011-07-15'

@@ -1,11 +1,14 @@
-#!mast .ruby .yardopts bin lib qed spec try [A-Z][A-Z]*
+#!mast .ruby .yardopts bin lib spec try [A-Z][A-Z]*
 .ruby
-lib/autoreload/lookup.rb
+.yardopts
 lib/autoreload/reloader.rb
 lib/autoreload/version.rb
 lib/autoreload.rb
 spec/autoreload_spec.rb
+try/changeme.rb
+try/start.rb
 HISTORY.rdoc
+PROFILE
 README.rdoc
-GPL3.txt
+VERSION
 COPYING.rdoc

@@ -94,7 +94,9 @@ Website:: http://autoreload.rubyforge.org
          WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
          PURPOSE.
 
-     -----------------------------------------------------------------------
+
+                                 *  *  *
+
 
                         GNU GENERAL PUBLIC LICENSE
                            Version 2, June 1991
