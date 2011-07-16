@@ -1,1 +1,135 @@
-My GitHub Page
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="stylesheet" href="assets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>AutoReload</title>
+  <style>
+    #rubyworks{ position: fixed; bottom: 0; right: 3px; padding: 0; opacity: 0.2; }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+
+<div id="main">
+  <h1 class="title">AutoReload</h1>
+  <div id="version" class="clickable" onclick='document.location = "http://rubygems.org/gems/autoreload"; return false'>
+    <p>Get Version</p>
+    <a href="http://rubygems.org/gems/autoreload" class="numbers">1.0.0</a>
+  </div>
+  <h1>you don't have to restart your program</h1>
+
+<h2>What Is It?</h2>
+
+<p>Autoreload reloads libraries automatically at regular intervals
+when files are updated.</p>
+
+<h2>Installing</h2>
+
+<pre syntax="ruby">$ gem install autoreload</pre>
+
+
+<h2>The Basics</h2>
+
+
+<pre class="ruby">
+  # foo.rb
+  def foo
+    1
+  end
+</pre>
+
+<pre class="ruby">
+  # sample1.rb
+  require 'autoreload'
+
+  autoreload(:interval=>1, :verbose=>true) do
+    require 'foo'
+  end
+
+  loop {
+    puts foo
+    sleep 1
+  }
+</pre>
+
+
+<p>In this situation, run the script <code>sample1.rb</code>. You see that the
+number 1 is shown repeatedly. Then, while that is still running,
+update the file <code>foo.rb</code>. For example, change the number 1 to 2
+and save it. AutoReload weill automatically detect the update
+and reload it. And the number 2 will be shown instead.</p>
+
+<h2>Documentation</h2>
+
+<ul>
+<li><a href="http://rubydoc.info/gems/autoreload/frames">RubyDoc.info</a></li>
+</ul>
+
+
+<h2>Repository</h2>
+
+<p>This project is hosted on <a href="http://rubyworks.github.com/autoreload">GitHub.com</a>.</p>
+
+<p>The repository is <code>git://github.com/rubyworks/autoreload.git</code>
+for anonymous access.</p>
+
+<h2>Copying</h2>
+
+<p>(FreeBSD License)</p>
+
+<p>Copyright (c) 2010 Thomas Sawyer</p>
+
+<p>Copyright (c) 2003 Kouichirou Eto</p>
+
+<h2>Contact</h2>
+
+<p>Comments are welcome. Send an email to Trans "transfire <em>at</em> gmail <em>dot</em> org".</p>
+
+<p>Autoreload is a <a href="http://rubyworks.github.com">RubyWorks</a> project.</p>
+
+  <p class="coda">
+    <a href="mailto:transfire@gmail.com">Trans</a>, 2011-07-16<br>
+    Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+  </p>
+</div>
+
+<div style="margin: 40px auto; width: 730px;">
+  <script type="text/javascript"><!--
+  google_ad_client = "ca-pub-1126154564663472";
+  /* RUBYWORKS 09-10-02 728x90 */
+  google_ad_slot = "0788888658";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+  </script>
+  <script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+<div id="rubyworks">
+  <a href="http://rubyworks.github.com">
+    <img src="http://rubyworks.github.com/assets/images/seal.png" height="175px" />
+  </a>
+</div>
+
+</body>
+</html>
