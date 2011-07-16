@@ -7,8 +7,8 @@ requirements:
   - minitest (test)
 
 authors:
+  - Thomas Sawyer <transfire@gmail.com>
   - Kouichirou Eto
-  - Thomas Sawyer
 
 description:
   Autoreload automatically reloads library files when they have been

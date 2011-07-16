@@ -9,7 +9,7 @@ This was done to simplify the overaul design of the library
 and consequently make it much more efficient, but also to
 fix a rather nasty bug that prevented scripts required by
 other scripts that were to be autoreloaded from autoreloading
-as well.
+as well. 
 
 The new design rely's solely on $LOADED_FEATURES, rather than
 looking up files on the $LOAD_PATH itself. This has an important
@@ -35,21 +35,29 @@ under the GPL v3.
 
 == 0.3.0 (2010-10-14)
 
+Changes:
+
 * Fix issue with looking up Roller libraries.
 * Switch testing framework to RSpec2.
 
 
 == 0.2.0 (2010-05-10)
 
+Changes:
+
 * Completely reworked API.
 
 
 == 0.1.0 (2010-05-01)
 
+Changes:
+
 * Same as original, but now a RubyWorks project.
 
 
 == 0.0.1 (2007-07-01)
+
+Changes:
 
 * Initial release
 
