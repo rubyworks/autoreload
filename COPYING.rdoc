@@ -68,11 +68,11 @@ Website:: http://autoreload.rubyforge.org
          provided that you do at least ONE of the following:
 
            a) distribute the binaries and library files of the software,
-	       together with instructions (in the manual page or equivalent)
-	       on where to get the original distribution.
+         together with instructions (in the manual page or equivalent)
+         on where to get the original distribution.
 
            b) accompany the distribution with the machine-readable source of
-	       the software.
+         the software.
 
            c) give non-standard binaries non-standard names, with
               instructions on where to get the original software distribution.
