@@ -4,7 +4,7 @@
 == Description
 
 Autoreload automatically reloads library files after they
-have been updated. It is especailly useful when testing
+have been updated. It is especially useful when testing
 stateless services such as web applications.
 
 IMPORTANT! Version 1.0+ has a new API. It also works best
@@ -17,7 +17,8 @@ if the mtime on the file is newer than the previous time.
 == Resources
 
 * {Homepage}[http://rubyworks.github.com/autoreload]
-* {Source Code}[http://github.com/rubyworks/autoreload]
+* {Development}[http://github.com/rubyworks/autoreload]
+* {Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
 
 
 == Synopsis
@@ -41,21 +42,20 @@ We can then run the following script, <tt>example.rb</tt>:
     sleep 2
   }
 
-With that running we can change <tt>foo.rb</tt> and the change
+While that's running we can change <tt>foo.rb</tt> and the change
 will take effect in <tt>example.rb</tt> within two seconds of
 being made.
 
-Note, that autoreload only works with _required_ files. It cannot
-monitor files that are broght in with _load_. This is because
-$LOADED_FEATURES is used to track which files are monitored.
+Note that autoreload only works with _required_ files. It cannot
+monitor files that are brought in with _load_. This is because
+@$LOADED_FEATURES@ is used to track which files are monitored.
 
 
 == Copyrights
 
-Copyright (c) 2003,2007 Kouichirou Eto
+<b>FreeBSD License</b>
 
-Copyright (c) 2010 Thomas Sawyer
-
-BSD 2-Clause License
+* Copyright (c) 2003,2007 Kouichirou Eto
+* Copyright (c) 2010 Thomas Sawyer
 
 See COPYING.rdoc for more information.
