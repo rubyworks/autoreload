@@ -1,7 +1,6 @@
-= AutoReload
+# AutoReload
 
-
-== Description
+## Description
 
 Autoreload automatically reloads library files after they
 have been updated. It is especially useful when testing
@@ -14,23 +13,26 @@ since the last load. Whereas in Ruby 1.9+, they only reload
 if the mtime on the file is newer than the previous time.
 
 
-== Resources
+## Resources
 
-* {Homepage}[http://rubyworks.github.com/autoreload]
-* {Development}[http://github.com/rubyworks/autoreload]
-* {Mailing List}[http://groups.google.com/group/rubyworks-mailinglist]
+* [Homepage](http://rubyworks.github.com/autoreload)
+* [Development](http://github.com/rubyworks/autoreload)
+* [Mailing List](http://groups.google.com/group/rubyworks-mailinglist)
 
 
-== Synopsis
+## Synopsis
 
 Say we have a library <tt>foo.rb</tt> in our load path:
 
+``` ruby
   def foo
     1
   end
+```
 
 We can then run the following script, <tt>example.rb</tt>:
 
+``` ruby
   require 'autoreload'
 
   autoreload(:interval=>2, :verbose=>true) do
@@ -41,19 +43,20 @@ We can then run the following script, <tt>example.rb</tt>:
     puts foo
     sleep 2
   }
+```
 
-While that's running we can change <tt>foo.rb</tt> and the change
-will take effect in <tt>example.rb</tt> within two seconds of
+While that's running we can change `foo.rb` and the change
+will take effect in `example.rb` within two seconds of
 being made.
 
 Note that autoreload only works with _required_ files. It cannot
-monitor files that are brought in with _load_. This is because
-@$LOADED_FEATURES@ is used to track which files are monitored.
+monitor files that are brought in with `#load`. This is because
+`$LOADED_FEATURES` is used to track which files are monitored.
 
 
-== Copyrights
+## Copyrights
 
-<b>FreeBSD License</b>
+FreeBSD License
 
 * Copyright (c) 2003,2007 Kouichirou Eto
 * Copyright (c) 2010 Thomas Sawyer
