@@ -1,5 +1,12 @@
 # AutoReload
 
+[Homepage](http://rubyworks.github.com/autoreload) |
+[Development](http://github.com/rubyworks/autoreload) |
+[Mailing List](http://groups.google.com/group/rubyworks-mailinglist)
+
+[![Build Status](https://secure.travis-ci.org/rubyworks/autoreload.png)](http://travis-ci.org/rubyworks/autoreload)
+
+
 ## Description
 
 Autoreload automatically reloads library files after they
@@ -11,13 +18,6 @@ under Ruby 1.9 or above. Under Ruby 1.8 or older files are
 reloaded regardless of whether they actually have changed
 since the last load. Whereas in Ruby 1.9+, they only reload
 if the mtime on the file is newer than the previous time.
-
-
-## Resources
-
-* [Homepage](http://rubyworks.github.com/autoreload)
-* [Development](http://github.com/rubyworks/autoreload)
-* [Mailing List](http://groups.google.com/group/rubyworks-mailinglist)
 
 
 ## Synopsis
