@@ -23,6 +23,10 @@ requirements:
   groups:
   - test
   development: true
+- name: rake
+  groups:
+  - test
+  development: true
 dependencies: []
 conflicts: []
 repositories: []

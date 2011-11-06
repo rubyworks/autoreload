@@ -14,8 +14,9 @@ description \
   'such as web applications.'
 
 requirements [
-  'detroit (build)',
-  'minitest (test)'
+  'detroit  (build)',
+  'minitest (test)',
+  'rake     (test)'
 ]
 
 authors [
