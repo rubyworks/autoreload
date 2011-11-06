@@ -1,7 +1,5 @@
 ---
 email:
-  file    : ~
-  subject : ~
   mailto  :
     - ruby-talk@ruby-lang.org
     - rubyworks-mailinglist@googlegroups.com
@@ -10,7 +8,7 @@ gem:
   active: true
 
 github:
-  active: true
+  folder: pages
 
 yard:
   yardopts: true
@@ -23,18 +21,15 @@ minitest:
   active   : true
 
 dnote:
-  service : DNote
-  labels  : ~
-  output  : log/DNOTE.rdoc
-
-#locat:
-#  title    : ~
-#  loadpath : ~
-#  exclude  : ~
-#  output   : log/LOCat.html
-#  active   : true
+  labels: ~
+  output: log/DNOTE.rdoc
 
 vclog:
-  output : log/ChangeLog.rdoc
-  active : false
+  output:
+    - log/Changes.rdoc
+    - log/History.rdoc
+
+#locat:
+#  path: lib,test
+#  output: log/LOCat.html
 
