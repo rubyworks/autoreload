@@ -1,6 +1,8 @@
 = RELEASE HISTORY
 
-== 1.0.1 (2011-11-06)
+== 1.0.1
+
+(NOT RELEASED YET)
 
 This release is simply a maintenance release to bring the build
 configuration up to date.
