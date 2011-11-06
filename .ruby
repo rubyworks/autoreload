@@ -40,7 +40,7 @@ load_path:
 revision: 0
 name: autoreload
 title: AutoReload
-version: 1.0.0
+version: 1.0.1
 summary: Automatically reload library files
 description: Autoreload automatically reloads library files when they have been updated.
   It is especially useful when testing stateless services such as web applications.

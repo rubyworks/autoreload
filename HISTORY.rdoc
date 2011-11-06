@@ -1,5 +1,15 @@
 = RELEASE HISTORY
 
+== 1.0.1 (2011-11-06)
+
+This release is simply a maintenance release to bring the build
+configuration up to date.
+
+Changes:
+
+* Modernize build configuration.
+
+
 == 1.0.0 (2011-07-16)
 
 This release overhauls the API. The #autoreload method now
