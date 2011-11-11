@@ -1,5 +1,9 @@
+--title AutoReload
+--readme README.rdoc
+--plugin tomdoc
 --private
 --protected
 lib/
 -
 [A-Z]*.*
+

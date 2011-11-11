@@ -7,26 +7,25 @@ module AutoReload
   #
   class Reloader
 
-    # Shortcut for Reloader.new(*args).start.
+    # Public: Shortcut for Reloader.new(*args).start.
     def self.start(*args, &block)
       self.new(*args, &block).start
     end
 
-    # Default interval is one second.
+    # Public: Default interval is one second.
     DEFAULT_INTERVAL = 1
 
     # New Reloader.
     #
-    # === Options
-    #
-    #   :interval - seconds between updates
-    #   :verbose  - true provides reload warning
-    #   :reprime  - include $0 in reload list
+    # options - The Hash options used to refine the reloader (default: {}):
+    #           :interval - Seconds between updates.
+    #           :verbose  - True provides reload warning.
+    #           :reprime  - Include $0 in reload list.
     #
     def initialize(options={}, &block)
-      @interval = options[:interval] || DEFAULT_INTERVAL
-      @verbose  = options[:verbose]
-      @reprime  = options[:reprime]
+      @interval = (options[:interval] || DEFAULT_INTERVAL).to_i
+      @verbose  = (options[:verbose])
+      @reprime  = (options[:reprime])
 
       @status   = {}
 
@@ -39,7 +38,7 @@ module AutoReload
       end
     end
 
-    # Start the reload thread.
+    # Public: Start the reload thread.
     def start
       update # prime the path loads
       @thread = Thread.new do
@@ -53,41 +52,45 @@ module AutoReload
         end
       end
       @thread.abort_on_exception = true
+      @thread
     end
 
-    # Kills the autoreload thread.
+    # Public: Kills the autoreload thread.
     def stop
       @thread.kill if @thread
     end
 
-    #
+    # Public: References the reload thread.
     attr :thread
 
-    # List of files provided to autoreload.
+    # Public: List of files provided to autoreload.
     attr :files
 
-    # Status hash, used to track reloads.
+    # Public: Status hash, used to track reloads.
     attr :status
 
-    # The periodic interval of reload.
+    # Public: The periodic interval of reload in seconds.
     attr :interval
 
-    # Provide warning on reload.
+    # Public: Provide warning on reload.
+    #
+    # Returns true/false if versboe mode.
     def verbose?
       @verbose || $VERBOSE
     end
 
-    # Put $0 in the reload list?
+    # Public: Put $0 in the reload list?
+    #
+    # Returns true/false whether to include $0.
     def reprime?
       @reprime
     end
 
   private
 
+    # TODO: Why include $0 in #libraries ?
+
     # The library files to autoreload.
-    #--
-    # ISSUE: Why include $0 ?
-    #--
     def libraries
       if @files.empty?
         @reprime ? [$0] + $" : $"
@@ -101,20 +104,23 @@ module AutoReload
       libraries.each{ |lib| check(lib) }
     end
 
+    # Check status and reload if out-of-date.
+    #
     # We can't check mtime under 1.8 b/c $LOADED_FEATURES does not
     # store the full path.
-    if RUBY_VERSION < '1.9'
-      def check(lib)
+    #
+    # lib - A library file.
+    #
+    # Returns Array of [file, mtime].
+    def check(lib)
+      if RUBY_VERSION < '1.9'
         warn "reload: '#{lib}'" if verbose?
         begin
           load lib
         rescue LoadError
           # file has been removed
         end
-      end
-    else
-      # Check status and reload if out-of-date.
-      def check(lib)
+      else 
         file, mtime = @status[lib]
         if file
           if FileTest.exist?(file)
@@ -134,6 +140,10 @@ module AutoReload
     end
 
     # Get library file status.
+    #
+    # file - The file path from which to get status.
+    #
+    # Returns Array of [file, mtime] or [nil, nil] if file not found.
     def get_status(file)
       if FileTest.exist?(file)
         [file, File.mtime(file).to_i]
@@ -149,4 +159,4 @@ module AutoReload
 
 end
 
-# Copyright (C) 2010 Thomas Sawyer (BSD-2-Clause)
+# Copyright (C) 2010 Rubyworks (BSD-2-Clause)

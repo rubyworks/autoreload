@@ -1,3 +1,4 @@
 module AutoReload
-  VERSION = '1.0.1'
+  # Public: Current release version.
+  VERSION = '1.1.0'
 end
