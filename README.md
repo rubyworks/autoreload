@@ -24,26 +24,23 @@ if the mtime on the file is newer than the previous time.
 
 Say we have a library <tt>foo.rb</tt> in our load path:
 
-``` ruby
-  def foo
-    1
-  end
-```
+    def foo
+      1
+    end
+
 
 We can then run the following script, <tt>example.rb</tt>:
 
-``` ruby
-  require 'autoreload'
+    require 'autoreload'
 
-  autoreload(:interval=>2, :verbose=>true) do
-    require 'foo.rb'
-  end
+    autoreload(:interval=>2, :verbose=>true) do
+      require 'foo.rb'
+    end
 
-  loop {
-    puts foo
-    sleep 2
-  }
-```
+    loop {
+      puts foo
+      sleep 2
+    }
 
 While that's running we can change `foo.rb` and the change
 will take effect in `example.rb` within two seconds of
@@ -62,3 +59,4 @@ FreeBSD License
 * Copyright (c) 2010 Thomas Sawyer
 
 See COPYING.rdoc for more information.
+
