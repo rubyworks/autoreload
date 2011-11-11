@@ -3,11 +3,11 @@ stencil: erb
 
 --- html
 <%
-  require 'pom'
-  project  = POM::Project.new('..')
-  version  = project.version
-  title    = project.metadata.title
-  download = project.metadata.resources.gem
+  require 'yaml'
+  project  = YAML.load_file('../.ruby')
+  version  = project['version']
+  title    = project['title']
+  download = project['resources']['gems']
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
