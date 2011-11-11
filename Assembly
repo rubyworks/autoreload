@@ -8,7 +8,7 @@ gem:
   active: true
 
 github:
-  folder: pages
+  gh_pages: web
 
 yard:
   yardopts: true
