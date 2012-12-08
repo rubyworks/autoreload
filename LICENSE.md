@@ -1,10 +1,11 @@
 Autoreload <http://rubyworks.github.com/autoreload>
 
-Copyright 2010 Rubyworks.
+Copyright (c) 2010 Rubyworks.
+Copyright (c) 2003 Kouichirou Eto.
 
 All rights reserved.
 
-License (spdx) BSD-2-Clause
+License (spdx) [BSD-2-Clause](http://spdx.org/licenses/bsd-2-clause)
 
 Redistribution and use in source and binary forms, with or without modification, are
 permitted provided that the following conditions are met:

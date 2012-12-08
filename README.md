@@ -42,21 +42,26 @@ We can then run the following script, <tt>example.rb</tt>:
       sleep 2
     }
 
-While that's running we can change `foo.rb` and the change
-will take effect in `example.rb` within two seconds of
-being made.
+While that's running we can change `foo.rb` and the change will
+take effect in `example.rb` within two seconds of being made.
 
 Note that autoreload only works with _required_ files. It cannot
 monitor files that are brought in with `#load`. This is because
 `$LOADED_FEATURES` is used to track which files are monitored.
 
 
-## Copyrights
+## Acknowledgements
 
-FreeBSD License
+The current version of Autoreload is a derviative of Kouichirou Eto's original
+work which can still be found at http://autoreload.rubyforge.org.
 
-* Copyright (c) 2003,2007 Kouichirou Eto
-* Copyright (c) 2010 Thomas Sawyer
 
-See COPYING.rdoc for more information.
+## License & Copyrights
+
+Autoreload is released as free software under the BSD-2-Clause license.
+
+* Copyright 2010 Rubyworks
+* Copyright 2003 Kouichirou Eto
+
+See LICENSE.md for details.
 
