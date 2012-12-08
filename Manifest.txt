@@ -9,8 +9,6 @@ spec/helper.rb
 spec/require_spec.rb
 try/changeme.rb
 try/tryme.rb
-Metadata.yml
-LICENSE.txt
+LICENSE.md
 HISTORY.md
 README.md
-NOTICE.md
