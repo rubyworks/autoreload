@@ -46,7 +46,7 @@ module AutoReload
           begin
             update
           rescue Exception
-            warn 'autoreload failed unexpectedly: ' + $!
+            warn "autoreload failed unexpectedly: #{$!}"
           end
           sleep @interval
         end
