@@ -1,8 +1,6 @@
-= RELEASE HISTORY
+# RELEASE HISTORY
 
-== 1.0.1
-
-(NOT RELEASED YET)
+## 1.1.0
 
 This release is simply a maintenance release to bring the build
 configuration up to date.
@@ -10,9 +8,10 @@ configuration up to date.
 Changes:
 
 * Modernize build configuration.
+* Use interpolation on error message.
 
 
-== 1.0.0 (2011-07-16)
+## 1.0.0 (2011-07-16)
 
 This release overhauls the API. The #autoreload method now
 takes a block. All libraries required within this block
@@ -39,13 +38,13 @@ Changes:
 * Fix require of require issue.
 
 
-== 0.3.1 (2011-05-15)
+## 0.3.1 (2011-05-15)
 
 This release simply fixes licensing issues. Autoreload is licensed
 under the GPL v3.
 
 
-== 0.3.0 (2010-10-14)
+## 0.3.0 (2010-10-14)
 
 Changes:
 
@@ -53,21 +52,21 @@ Changes:
 * Switch testing framework to RSpec2.
 
 
-== 0.2.0 (2010-05-10)
+## 0.2.0 (2010-05-10)
 
 Changes:
 
 * Completely reworked API.
 
 
-== 0.1.0 (2010-05-01)
+## 0.1.0 (2010-05-01)
 
 Changes:
 
 * Same as original, but now a RubyWorks project.
 
 
-== 0.0.1 (2007-07-01)
+## 0.0.1 (2007-07-01)
 
 Changes:
 
