@@ -9,3 +9,8 @@ group :test do
   gem 'minitest'
 end
 
+platforms :rbx do
+  gem 'psych'  # yaml
+  gem 'rubysl', '~> 2.0'
+  gem 'minitest'
+end
