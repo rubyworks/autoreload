@@ -2,7 +2,7 @@
 revision: 2013
 type: ruby
 sources:
-- Indexfile
+- Index.rb
 - Gemfile
 authors:
 - name: Thomas Sawyer
@@ -16,6 +16,21 @@ requirements:
   name: rake
 - groups:
   - test
+  version: '>= 0'
+  name: minitest
+- engines:
+  - name: rbx
+    version: 0+
+  version: '>= 0'
+  name: psych
+- engines:
+  - name: rbx
+    version: 0+
+  version: ~> 2.0
+  name: rubysl
+- engines:
+  - name: rbx
+    version: 0+
   version: '>= 0'
   name: minitest
 conflicts: []
@@ -42,7 +57,7 @@ customs: []
 paths:
   lib:
   - lib
-version: 1.1.0
+version: 1.2.0
 name: autoreload
 title: AutoReload
 summary: Automatically reload library files
@@ -50,4 +65,4 @@ description: Autoreload automatically reloads library files when they have been 
   It is especially useful when testing stateless services such as web applications.
 created: '2007-07-01'
 webcvs: https://github.com/rubyworks/autoreload/tree/master
-date: '2014-11-08'
+date: '2015-05-07'

@@ -1,5 +1,16 @@
 # RELEASE HISTORY
 
+## 1.2.0
+
+Add `watch_gems` option to watch all required gems. The default 
+is now to only watch `.rb` files in the current working directory.
+
+Changes:
+
+* Add `:watch_gems` option.
+* Watch current working directory only, as default.
+
+
 ## 1.1.0
 
 This release is simply a maintenance release to bring the build

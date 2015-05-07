@@ -9,3 +9,8 @@ Rake::TestTask.new do |t|
   t.verbose = false
 end
 
+desc "git pull origin master"
+task :pull do
+  sh "git pull origin master"
+end
+
