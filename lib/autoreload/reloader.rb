@@ -23,16 +23,26 @@ module AutoReload
     #           :reprime  - Include $0 in reload list.
     #
     def initialize(options={}, &block)
-      @interval = (options[:interval] || DEFAULT_INTERVAL).to_i
-      @verbose  = (options[:verbose])
-      @reprime  = (options[:reprime])
+      @interval   = (options[:interval] || DEFAULT_INTERVAL).to_i
+      @verbose    = (options[:verbose])
+      @reprime    = (options[:reprime])
+      @watch_gems = (options[:watch_gems])
 
       @status   = {}
 
       features = $".dup
       if block
         block.call
-        @files = ($" - features).reverse
+        @files = ($" - features).select do |f|
+          (@watch_gems ? true : f.start_with?(Dir.pwd)) && f.end_with?(".rb")
+        end.reverse
+
+        if @verbose
+          puts "watching files:"
+          puts "---------------"
+          puts @files
+          puts "---------------"
+        end
       else
         @files = []
       end
@@ -120,7 +130,7 @@ module AutoReload
         rescue LoadError
           # file has been removed
         end
-      else 
+      else
         file, mtime = @status[lib]
         if file
           if FileTest.exist?(file)
@@ -148,9 +158,9 @@ module AutoReload
       if FileTest.exist?(file)
         [file, File.mtime(file).to_i]
       else
-        warn "reload fail: library '#{lib}' not found" if verbose?
-        #raise "The library '#{lib}' is not found."
-        #$stdout.puts(message("The library '#{lib}' is not found.")) if @verbose
+        warn "reload fail: library '#{file}' not found" if verbose?
+        #raise "The library '#{file}' is not found."
+        #$stdout.puts(message("The library '#{file}' is not found.")) if @verbose
         [nil, nil]
       end
     end
