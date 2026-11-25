@@ -1,10 +1,8 @@
 # AutoReload
 
-[Homepage](http://rubyworks.github.com/autoreload) |
-[Development](http://github.com/rubyworks/autoreload) |
-[Mailing List](http://groups.google.com/group/rubyworks-mailinglist)
-
-[![Build Status](https://secure.travis-ci.org/rubyworks/autoreload.png)](http://travis-ci.org/rubyworks/autoreload)
+[Source Code](https://github.com/rubyworks/autoreload) /
+[Report Issue](https://github.com/rubyworks/autoreload/issues) &nbsp; &nbsp;
+[![CI](https://github.com/rubyworks/autoreload/actions/workflows/ci.yml/badge.svg)](https://github.com/rubyworks/autoreload/actions/workflows/ci.yml)
 
 
 ## Description
@@ -13,11 +11,9 @@ Autoreload automatically reloads library files after they
 have been updated. It is especially useful when testing
 stateless services such as web applications.
 
-IMPORTANT! Version 1.0+ has a new API. It also works best
-under Ruby 1.9 or above. Under Ruby 1.8 or older files are 
-reloaded regardless of whether they actually have changed
-since the last load. Whereas in Ruby 1.9+, they only reload
-if the mtime on the file is newer than the previous time.
+It needs Ruby 3.1 or newer.
+
+    $ gem install autoreload
 
 
 ## Synopsis
@@ -49,11 +45,33 @@ Note that autoreload only works with _required_ files. It cannot
 monitor files that are brought in with `#load`. This is because
 `$LOADED_FEATURES` is used to track which files are monitored.
 
+Only `.rb` files under the current working directory are watched. To
+watch everything the block requires, gems included, pass
+`:watch_gems=>true`. With `:verbose=>true` the watched files are listed
+and each reload is reported, to standard error.
+
+A changed file is loaded again, on top of what is already defined.
+Nothing is removed first, so a method or constant deleted from the file
+stays until the program restarts.
+
+
+## Doing it by hand
+
+`autoreload` starts a thread and returns it. To check for changes when
+you choose instead, or to stop the checking, use a reloader directly:
+
+    reloader = AutoReload::Reloader.new{ require 'foo' }
+
+    reloader.update     # reload whatever has changed, now
+
+    reloader.start      # or check every interval, in a thread
+    reloader.stop
+
 
 ## Acknowledgements
 
-The current version of Autoreload is a derviative of Kouichirou Eto's original
-work which can still be found at http://autoreload.rubyforge.org.
+The current version of Autoreload is a derivative of Kouichirou Eto's original
+work.
 
 
 ## License & Copyrights

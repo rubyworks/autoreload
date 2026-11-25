@@ -1,5 +1,27 @@
 # RELEASE HISTORY
 
+## Unreleased (1.3.0)
+
+A maintenance release, for Ruby 3.1 and up.
+
+Changes:
+
+* `Reloader#update` is public, to check for changes at once without
+  the thread.
+* The interval can be a fraction of a second. Before, it was rounded
+  down, and an interval under one second made the thread spin.
+* The list of watched files in verbose mode goes to standard error,
+  as the reload reports do.
+* Drop the code for Ruby 1.8.
+* Tests run on Spectrum.
+
+Fixes:
+
+* A change made in the same second as the last load was missed, as
+  times were compared in whole seconds.
+* A file that failed to reload was tried again at every interval.
+
+
 ## 1.2.0
 
 Add `watch_gems` option to watch all required gems. The default 
