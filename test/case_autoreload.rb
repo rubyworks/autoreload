@@ -47,14 +47,18 @@ testcase AutoReload::Reloader do
 
   test "a change within the same second is seen" do
     library_dir do
-      write_file('ar_quick.rb', 'def ar_quick; 1; end', -5)
+      base = Time.at(Time.now.to_i - 5)   # a whole second, in the past
+
+      File.write('ar_quick.rb', 'def ar_quick; 1; end')
+      File.utime(base, base, 'ar_quick.rb')
       reloader = AutoReload::Reloader.new{ require 'ar_quick' }
       reloader.update
 
       File.write('ar_quick.rb', 'def ar_quick; 2; end')
-      base = File.mtime('ar_quick.rb').floor - 5
       File.utime(base + 0.25, base + 0.25, 'ar_quick.rb')
       reloader.update
+      ar_quick.assert == 2
+
       File.write('ar_quick.rb', 'def ar_quick; 3; end')
       File.utime(base + 0.75, base + 0.75, 'ar_quick.rb')
       reloader.update
