@@ -7,7 +7,8 @@ A maintenance release, for Ruby 3.1 and up.
 Changes:
 
 * `Reloader#update` is public, to check for changes at once without
-  the thread.
+  the thread. A reloader notes its files when it is made, so the first
+  `update` already reloads what has changed since.
 * The interval can be a fraction of a second. Before, it was rounded
   down, and an interval under one second made the thread spin.
 * The list of watched files in verbose mode goes to standard error,

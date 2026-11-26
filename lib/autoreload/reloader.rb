@@ -44,11 +44,12 @@ module AutoReload
       else
         @files = []
       end
+
+      update # note the files as they are now
     end
 
     # Public: Start the reload thread.
     def start
-      update # prime the path loads
       @thread = Thread.new do
         loop do
           begin
@@ -105,7 +106,8 @@ module AutoReload
       end
     end
 
-    # Check every watched file and reload those that have changed.
+    # Check every watched file and reload those that have changed since
+    # the reloader was made, or since they were last reloaded.
     def update
       libraries.each{ |lib| check(lib) }
     end
