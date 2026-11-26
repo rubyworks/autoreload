@@ -21,6 +21,17 @@ testcase AutoReload::Reloader do
     end
   end
 
+  test "a change made before the first update is seen" do
+    library_dir do
+      write_file('ar_first.rb', 'def ar_first; 1; end')
+      reloader = AutoReload::Reloader.new{ require 'ar_first' }
+
+      write_file('ar_first.rb', 'def ar_first; 2; end', 10)
+      reloader.update
+      ar_first.assert == 2
+    end
+  end
+
   test "a file that has not changed is not loaded again" do
     library_dir do
       write_file('ar_same.rb', '$ar_same = ($ar_same || 0) + 1')
