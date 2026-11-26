@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## Unreleased (1.3.0)
+## 1.3.0 (2026-11-26)
 
 A maintenance release, for Ruby 3.1 and up.
 
