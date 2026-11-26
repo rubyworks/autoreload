@@ -1,5 +1,3 @@
-require 'thread'
-
 module AutoReload
 
   # Reload class does all the heavy lifting
@@ -23,7 +21,7 @@ module AutoReload
     #           :reprime  - Include $0 in reload list.
     #
     def initialize(options={}, &block)
-      @interval   = (options[:interval] || DEFAULT_INTERVAL).to_i
+      @interval   = (options[:interval] || DEFAULT_INTERVAL).to_f
       @verbose    = (options[:verbose])
       @reprime    = (options[:reprime])
       @watch_gems = (options[:watch_gems])
@@ -38,10 +36,10 @@ module AutoReload
         end.reverse
 
         if @verbose
-          puts "watching files:"
-          puts "---------------"
-          puts @files
-          puts "---------------"
+          warn "watching files:"
+          warn "---------------"
+          warn @files
+          warn "---------------"
         end
       else
         @files = []
@@ -55,7 +53,7 @@ module AutoReload
         loop do
           begin
             update
-          rescue Exception
+          rescue ScriptError, StandardError
             warn "autoreload failed unexpectedly: #{$!}"
           end
           sleep @interval
@@ -96,9 +94,7 @@ module AutoReload
       @reprime
     end
 
-  private
 
-    # TODO: Why include $0 in #libraries ?
 
     # The library files to autoreload.
     def libraries
@@ -109,43 +105,34 @@ module AutoReload
       end
     end
 
-    # Iterate through all selection library files and reload if needed.
+    # Check every watched file and reload those that have changed.
     def update
       libraries.each{ |lib| check(lib) }
     end
 
+  private :libraries
+
+  private
+
     # Check status and reload if out-of-date.
-    #
-    # We can't check mtime under 1.8 b/c $LOADED_FEATURES does not
-    # store the full path.
     #
     # lib - A library file.
     #
-    # Returns Array of [file, mtime].
     def check(lib)
-      if RUBY_VERSION < '1.9'
-        warn "reload: '#{lib}'" if verbose?
-        begin
-          load lib
-        rescue LoadError
+      file, mtime = @status[lib]
+      if file
+        if FileTest.exist?(file)
+          curtime = File.mtime(file)
+          if mtime < curtime
+            warn "reload: '#{file}'" if verbose?
+            @status[lib] = [file, curtime]
+            load file
+          end
+        else
           # file has been removed
         end
       else
-        file, mtime = @status[lib]
-        if file
-          if FileTest.exist?(file)
-            curtime = File.mtime(file).to_i
-            if mtime < curtime
-              warn "reload: '#{file}'" if verbose?
-              load file
-              @status[lib] = [file, curtime]
-            end
-          else
-            # file has been removed
-          end
-        else
-          @status[lib] = get_status(lib)
-        end
+        @status[lib] = get_status(lib)
       end
     end
 
@@ -156,7 +143,7 @@ module AutoReload
     # Returns Array of [file, mtime] or [nil, nil] if file not found.
     def get_status(file)
       if FileTest.exist?(file)
-        [file, File.mtime(file).to_i]
+        [file, File.mtime(file)]
       else
         warn "reload fail: library '#{file}' not found" if verbose?
         #raise "The library '#{file}' is not found."
